@@ -1,0 +1,13 @@
+unalcol.agents
+unalcol.agents.simulate
+unalcol.agents.simulate.util
+unalcol.agents.simulate.gui
+unalcol.agents.examples.labyrinth
+unalcol.agents.examples.labyrinth.teseoeater
+unalcol.agents.examples.labyrinth.teseo
+unalcol.agents.examples.labyrinth.teseo.simple
+unalcol.agents.examples.sudoku
+unalcol.agents.examples.sudoku.naive
+unalcol.agents.search
+unalcol.agents.search.classic
+unalcol.agents.search.util

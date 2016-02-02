@@ -1,0 +1,5 @@
+  public int hello;
+  public int accion( boolean PF, boolean PD, boolean PA, boolean PI, boolean MT ){
+     System.out.println("Computing...");
+     return (int)(4*Math.random());
+  }
