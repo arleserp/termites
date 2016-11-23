@@ -6,12 +6,8 @@ package unalcol.termites.Program;
 
 import java.util.ArrayList;
 import unalcol.termites.VM.TermitesVM;
-import java.util.LinkedList;
-import java.util.Queue;
 import unalcol.termites.TermitesLanguage.TermitesLanguage;
-import unalcol.termites.World.Termite;
 import unalcol.random.RandomUtil;
-import static unalcol.termites.Program.MotionUtil.Roulette;
 import unalcol.termites.Runnable.AppMain;
 
 /**
