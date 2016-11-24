@@ -1,0 +1,6 @@
+runall.sh: 1: runall.sh: ﻿#!/bin/sh: not found
+lwphevap.sh: 1: lwphevap.sh: ﻿#!/bin/sh: not found
+sequential.sh: 1: sequential.sh: ﻿#!/bin/sh: not found
+random.sh: 1: random.sh: ﻿#!/bin/sh: not found
+levywalk.sh: 1: levywalk.sh: ﻿#!/bin/sh: not found
+hybrid.sh: 1: hybrid.sh: ﻿#!/bin/sh: not found
