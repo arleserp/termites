@@ -19,12 +19,32 @@ import unalcol.types.collection.vector.Vector;
  * @author arles.rodriguez
  */
 public class WorldConsensusImpl extends World {
+
+    /**
+     *
+     */
     public Vector<Agent> Pieces;
     private int age;
     TermitesLanguage language;
+
+    /**
+     *
+     */
     public Vector<int[]> Targets;
+
+    /**
+     *
+     */
     public int currAgent;
+
+    /**
+     *
+     */
     public int seconds;
+
+    /**
+     *
+     */
     public int food;
     Hashtable<String, ConcurrentLinkedQueue> mbuffer = new Hashtable<String, ConcurrentLinkedQueue>();
     GenerateIntegerDataSet ds;
@@ -32,6 +52,14 @@ public class WorldConsensusImpl extends World {
     Hashtable<String, Percept> p; 
 
     /*constructor called by world canvas */
+
+    /**
+     *
+     * @param agents
+     * @param w
+     * @param h
+     */
+
     public WorldConsensusImpl(Vector<Agent> agents, int w, int h) {
         super(agents, w, h);
         width = w;
@@ -63,10 +91,18 @@ public class WorldConsensusImpl extends World {
         p = new Hashtable<String, Percept>();
     }
 
+    /**
+     *
+     * @return
+     */
     public Vector getTargets() {
         return Targets;
     }
 
+    /**
+     *
+     * @param pTargets
+     */
     public void setTargets(Vector pTargets) {
         for (int i = 0; i < pTargets.size(); i++) {
             int input2[] = (int[]) pTargets.get(i);
@@ -78,6 +114,10 @@ public class WorldConsensusImpl extends World {
         this.Targets = pTargets;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getFood() {
         return food;
     }
@@ -140,6 +180,10 @@ public class WorldConsensusImpl extends World {
         return true;
     }
 
+    /**
+     *
+     * @param piece
+     */
     public void DrawPieceInWorld(Termite piece) {
 
         int x = piece.getX();
@@ -203,6 +247,12 @@ public class WorldConsensusImpl extends World {
         return p;
     }
 
+    /**
+     *
+     * @param agent
+     * @param action
+     * @return
+     */
     public boolean act(Agent agent, Action action) {
         this.increaseAge();
         String act = action.getCode();
@@ -303,11 +353,19 @@ public class WorldConsensusImpl extends World {
         return executed;
     }
 
+    /**
+     *
+     * @param agent
+     */
     public void init(Agent agent) {
         Termite sim_agent = (Termite) agent;
         sim_agent.run();
     }
 
+    /**
+     *
+     * @return
+     */
     public Vector<Action> actions() {
         Vector<Action> acts = new Vector<Action>();
         int n = language.getActionsNumber();

@@ -24,12 +24,16 @@ import unalcol.termites.World.WorldTemperaturesImpl;
 
 /**
  *
- * @author Arles Rodriguez
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public class StatsTemperaturesImpl1 {
 
     private String reportFile;
 
+    /**
+     *
+     * @param f
+     */
     public StatsTemperaturesImpl1(String f) {
         this.reportFile = f;
     }
@@ -95,6 +99,10 @@ public class StatsTemperaturesImpl1 {
         return Statistics;
     }
 
+    /**
+     *
+     * @param w
+     */
     public void printStatistics(World w) {
         Hashtable st = getStatisticsInteger(w);
         try {

@@ -10,10 +10,15 @@ import unalcol.random.RandomUtil;
 
 /**
  *
- * @author Arles Rodriguez
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public class MotionUtil {
 
+    /**
+     *
+     * @param pheromone
+     * @return
+     */
     public static int Roulette(float[] pheromone) {
         //System.out.println("roulette");
         float sum = 0;
@@ -33,6 +38,11 @@ public class MotionUtil {
         return mov;
     }
 
+    /**
+     *
+     * @param pheromone
+     * @return
+     */
     public static int seek(float[] pheromone) {
         int dirPos = 0;
         double q0 = 0.9;
@@ -78,6 +88,11 @@ public class MotionUtil {
         return dirPos;
     }
 
+    /**
+     *
+     * @param pheromone
+     * @return
+     */
     public static int carry(float[] pheromone) {
         int dirPos = 0;
         double q0 = 0.9;

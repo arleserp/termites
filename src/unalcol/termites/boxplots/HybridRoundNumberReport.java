@@ -77,6 +77,10 @@ import org.jfree.util.Log;
 import org.jfree.util.LogContext;
 import unalcol.termites.reports.DataCollectedLatexConsolidatorSASOMessagesSend1;
 
+/**
+ *
+ * @author ARODRIGUEZ
+ */
 public class HybridRoundNumberReport extends ApplicationFrame {
 
     /**
@@ -88,6 +92,7 @@ public class HybridRoundNumberReport extends ApplicationFrame {
      * Creates a new demo.
      *
      * @param title the frame title.
+     * @param pf
      */
     public HybridRoundNumberReport(final String title, ArrayList<Double> pf) {
 

@@ -44,6 +44,10 @@ import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 import unalcol.termites.reports.DataCollectedLatexConsolidatorSASOMessagesSend1;
 
+/**
+ *
+ * @author ARODRIGUEZ
+ */
 public class SucessfulRates extends ApplicationFrame {
 
     private static String experimentsDir = ".";
@@ -142,6 +146,10 @@ public class SucessfulRates extends ApplicationFrame {
         return pfs;
     }
 
+    /**
+     *
+     * @param s
+     */
     public SucessfulRates(String s) {
         super(s);
         ArrayList<Double> failureProbs = getFailureProbs();
@@ -376,6 +384,10 @@ public class SucessfulRates extends ApplicationFrame {
         return false;
     }
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         if (args.length > 0) {
             experimentsDir = args[0];

@@ -110,6 +110,7 @@ public class MessagesSent2 extends ApplicationFrame {
      * Creates a new demo.
      *
      * @param title the frame title.
+     * @param pf
      */
     public MessagesSent2(final String title, ArrayList<Double> pf) {
 

@@ -10,7 +10,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  *
- * @author Arles Rodriguez
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public class NetworkMessageBuffer {
     Hashtable<String, LinkedBlockingQueue> mbuffer;
@@ -24,19 +24,38 @@ public class NetworkMessageBuffer {
         mbuffer = new Hashtable<>();
     }
 
+    /**
+     *
+     * @return
+     */
     public static NetworkMessageBuffer getInstance() {
         return Holder.INSTANCE;
     }
 
+    /**
+     *
+     * @param pid
+     */
     public void createBuffer(String pid){
         mbuffer.put(pid, new LinkedBlockingQueue());
     }
     
+    /**
+     *
+     * @param pid
+     * @param msg
+     */
     public void putMessage(String pid, String[] msg) {
         mbuffer.get(pid).add(msg);
     }
 
     // Called by Consumer
+
+    /**
+     *
+     * @param pid
+     * @return
+     */
     public String[] getMessage(String pid) {
         return (String[]) (mbuffer.get(pid).poll());
     }

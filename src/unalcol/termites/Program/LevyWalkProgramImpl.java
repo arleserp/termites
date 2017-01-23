@@ -16,14 +16,27 @@ public class LevyWalkProgramImpl extends TermitesMovementProgram {
     int counter = 0;
     boolean ret = false;
     int iterationFailure = 0;
+
+    /**
+     *
+     */
     public TermitesVM termitesvm = null;
     //defines an error vector
+
+    /**
+     *
+     */
     public double pf = 0;
     float alpha;
     float acumulator;
     int dirPos;
     float T;
 
+    /**
+     *
+     * @param _language
+     * @param probFailure
+     */
     public LevyWalkProgramImpl(TermitesLanguage _language, double probFailure) {
         super(_language, 0);
         pf = probFailure;
@@ -42,6 +55,17 @@ public class LevyWalkProgramImpl extends TermitesMovementProgram {
         return false;
     }
 
+    /**
+     *
+     * @param temps
+     * @param pheromone
+     * @param termitesNeighbor
+     * @param seekingStatus
+     * @param message
+     * @param proximitySensor
+     * @param MT
+     * @return
+     */
     @Override
     public int accion(float[] temps, float[] pheromone, boolean[] termitesNeighbor, int seekingStatus, String message,  boolean proximitySensor, boolean[] MT) {
         /* If termite has a message then react to this message */
@@ -60,6 +84,10 @@ public class LevyWalkProgramImpl extends TermitesMovementProgram {
         return dirPos;
     }
 
+    /**
+     *
+     * @return
+     */
     public TermitesVM getTermitesvm() {
         return termitesvm;
     }

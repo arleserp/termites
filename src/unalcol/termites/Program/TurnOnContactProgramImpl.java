@@ -15,12 +15,21 @@ public class TurnOnContactProgramImpl extends TermitesMovementProgram {
     int counter = 0;
     boolean ret = false;
     int iterationFailure = 0;
+
+    /**
+     *
+     */
     public TermitesVM termitesvm = null;
     //defines an error vector
     //public double pf = 0;
     int dirPos;
     float T;
 
+    /**
+     *
+     * @param _language
+     * @param probFailure
+     */
     public TurnOnContactProgramImpl(TermitesLanguage _language, double probFailure) {
         super(_language, 0);
         pf = probFailure;
@@ -37,6 +46,17 @@ public class TurnOnContactProgramImpl extends TermitesMovementProgram {
         return false;
     }
 
+    /**
+     *
+     * @param temps
+     * @param pheromone
+     * @param termitesNeighbor
+     * @param seekingStatus
+     * @param message
+     * @param proximitySensor
+     * @param MT
+     * @return
+     */
     @Override
     public int accion(float[] temps, float[] pheromone, boolean[] termitesNeighbor, int seekingStatus, String message,  boolean proximitySensor, boolean[] MT) {
         /* If termite has a message then react to this message */
@@ -50,6 +70,10 @@ public class TurnOnContactProgramImpl extends TermitesMovementProgram {
         return dirPos;
     }
 
+    /**
+     *
+     * @return
+     */
     public TermitesVM getTermitesvm() {
         return termitesvm;
     }

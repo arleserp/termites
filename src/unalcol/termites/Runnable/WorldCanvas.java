@@ -58,8 +58,20 @@ public class WorldCanvas extends Canvas {
     private Graphics buffer2 = null;
     private Rectangle r = new Rectangle(0, 0, 0, 0);
     private World world;
+
+    /**
+     *
+     */
     public boolean renderAnts = true;
+
+    /**
+     *
+     */
     public boolean renderSeeking = true;
+
+    /**
+     *
+     */
     public boolean renderCarrying = true;
     int modo = 0;
     GraphicReportHealingObserver greport;
@@ -414,6 +426,11 @@ public class WorldCanvas extends Canvas {
         phColor = null;
     }
 
+    /**
+     *
+     * @param g
+     * @param g2
+     */
     public void render(Graphics g, Graphics g2) {
 
         float xr = r.width / world.width;
@@ -538,6 +555,13 @@ public class WorldCanvas extends Canvas {
         phColor = null;
     }
 
+    /**
+     *
+     * @param x
+     * @param y
+     * @param fx
+     * @param fy
+     */
     public void createWallLine(int x, int y, int fx, int fy) {
         if (x == fx) {
             for (; y <= fy; y++) {

@@ -36,11 +36,18 @@ public abstract class DiagnoseVM {
     int diagnoseNumber = 0;
     float alpha = (float) 0.01;
     float gamma = (float) 0.06;
+
+    /**
+     *
+     */
     protected static String[] language = {
         "HELLO", "HASPROGRAM", "HAVEPROGRAM", "NOHAVEPROGRAM", "END", "ACT", "DONE", "DIAGNOSE", "RUNINSTR", "INSTRRES"
     };
     boolean canDiagnose;
 
+    /**
+     *
+     */
     public DiagnoseVM() {
         this.destinydir = 0;
         diagnoseWeights = new float[language.length];
@@ -48,6 +55,12 @@ public abstract class DiagnoseVM {
         canDiagnose = true;
     }
 
+    /**
+     *
+     * @param destdir
+     * @param height
+     * @param width
+     */
     public DiagnoseVM(int destdir, int height, int width) {
         this.destinydir = destdir;
         this.worldHeight = height;
@@ -73,6 +86,8 @@ public abstract class DiagnoseVM {
     /**
      * This function now have a diagnose matrix for asking questions
      * @param piece
+     * @param w
+     * @param h
      * @return
      */
     public String startDiagnosis(Termite piece, int w, int h) {
@@ -93,6 +108,13 @@ public abstract class DiagnoseVM {
       //  return null;
     }
 
+    /**
+     *
+     * @param piece
+     * @param msg
+     * @param acted
+     * @return
+     */
     public String responseMessage(Termite piece, String msg, boolean acted) {
         String res = "";
         boolean comp = true;
@@ -184,11 +206,19 @@ public abstract class DiagnoseVM {
         return res;
     }
 
+    /**
+     *
+     * @param piece
+     */
     public void endDialog(Termite piece) {
         piece.setDiagnoseStatus(Termite.NOTDIAGNOSE);
         //piece.setVelocity(6);
     }
 
+    /**
+     *
+     * @return
+     */
     protected String getDiagnosequestion() {
         int tmp = 0;
         boolean useRandomdir = true;
@@ -294,6 +324,10 @@ public abstract class DiagnoseVM {
         return false;
     }
 
+    /**
+     *
+     * @param piece
+     */
     protected void calculatePos(Termite piece) {
         int[] xs = {1, 1, 0, -1, -1, -1, 0, 1};
         int[] ys = {0, 1, 1, 1, 0, -1, -1, -1};
@@ -327,6 +361,11 @@ public abstract class DiagnoseVM {
     }
 
     //obtains maxQ
+
+    /**
+     *
+     * @return
+     */
     public float getMaxQ() {
         int tmp = 0;
         boolean useRandomdir = true;
@@ -356,10 +395,18 @@ public abstract class DiagnoseVM {
         return output;
     }
 
+    /**
+     *
+     * @param canDiagnose
+     */
     public void setCanDiagnose(boolean canDiagnose) {
         this.canDiagnose = canDiagnose;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isCanDiagnose() {
         return canDiagnose;
     }

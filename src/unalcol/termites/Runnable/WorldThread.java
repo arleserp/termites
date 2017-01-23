@@ -28,8 +28,20 @@ import unalcol.types.collection.vector.Vector;
 public class WorldThread implements Runnable {
 
     private World world;
+
+    /**
+     *
+     */
     public boolean renderAnts = true;
+
+    /**
+     *
+     */
     public boolean renderSeeking = true;
+
+    /**
+     *
+     */
     public boolean renderCarrying = true;
     int modo = 0;
     GraphicReportHealingObserver greport;
@@ -196,6 +208,13 @@ public class WorldThread implements Runnable {
          System.out.println("End WorldThread");*/
     }
 
+    /**
+     *
+     * @param x
+     * @param y
+     * @param fx
+     * @param fy
+     */
     public void createWallLine(int x, int y, int fx, int fy) {
         if (x == fx) {
             for (; y <= fy; y++) {

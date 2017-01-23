@@ -8,10 +8,15 @@ package unalcol.termites.WorldDesigner;
 
 /**
  *
- * @author Arles Rodriguez
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public class MapCode {
-        public static void main(String[] args) {
+
+    /**
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
         
         }
 }

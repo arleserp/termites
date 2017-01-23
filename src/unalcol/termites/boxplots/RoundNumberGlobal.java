@@ -100,6 +100,7 @@ public class RoundNumberGlobal extends ApplicationFrame {
      * Creates a new demo.
      *
      * @param title the frame title.
+     * @param pf
      */
     public RoundNumberGlobal(final String title, ArrayList<Double> pf) {
       

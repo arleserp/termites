@@ -44,6 +44,10 @@ import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 import unalcol.termites.reports.DataCollectedLatexConsolidatorSASOMessagesSend1;
 
+/**
+ *
+ * @author ARODRIGUEZ
+ */
 public class SucessfulRatesHybrid extends ApplicationFrame {
 
     private static final long serialVersionUID = 1L;
@@ -95,6 +99,10 @@ public class SucessfulRatesHybrid extends ApplicationFrame {
         }
     }
 
+    /**
+     *
+     * @param s
+     */
     public SucessfulRatesHybrid(String s) {
         super(s);
         ArrayList<Double> pf0 = new ArrayList<>();
@@ -341,6 +349,10 @@ public class SucessfulRatesHybrid extends ApplicationFrame {
         return false;
     }
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         SucessfulRatesHybrid itemlabeldemo2 = new SucessfulRatesHybrid("Sucess Rates");
         itemlabeldemo2.pack();

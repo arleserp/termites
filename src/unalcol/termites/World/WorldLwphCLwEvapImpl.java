@@ -22,15 +22,38 @@ import unalcol.types.collection.vector.Vector;
  */
 public class WorldLwphCLwEvapImpl extends World {
 
+    /**
+     *
+     */
     public Vector<Agent> Pieces;
     TermitesLanguage language;
+
+    /**
+     *
+     */
     public Vector<int[]> Targets;
+
+    /**
+     *
+     */
     public int currAgent;
+
+    /**
+     *
+     */
     public int seconds;
     Hashtable<String, ConcurrentLinkedQueue> mbuffer = new Hashtable<String, ConcurrentLinkedQueue>();
     GenerateIntegerDataSet ds;
 
     /*constructor called by world canvas */
+
+    /**
+     *
+     * @param agents
+     * @param w
+     * @param h
+     */
+
     public WorldLwphCLwEvapImpl(Vector<Agent> agents, int w, int h) {
         super(agents, w, h);
         width = w;
@@ -64,6 +87,10 @@ public class WorldLwphCLwEvapImpl extends World {
         return m;
     }
 
+    /**
+     *
+     * @param m
+     */
     public void printMatrix(double[][] m) {
         for (double[] m1 : m) {
             for (int j = 0; j < m[0].length; j++) {
@@ -73,10 +100,18 @@ public class WorldLwphCLwEvapImpl extends World {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public Vector getTargets() {
         return Targets;
     }
 
+    /**
+     *
+     * @param pTargets
+     */
     public void setTargets(Vector pTargets) {
         for (int i = 0; i < pTargets.size(); i++) {
             int input2[] = (int[]) pTargets.get(i);
@@ -103,6 +138,10 @@ public class WorldLwphCLwEvapImpl extends World {
         return states[x % width][y % height];
     }
 
+    /**
+     *
+     * @param piece
+     */
     public void DrawPieceInWorld(Termite piece) {
 
         int x = piece.getX();
@@ -155,6 +194,12 @@ public class WorldLwphCLwEvapImpl extends World {
         }
     }
 
+    /**
+     *
+     * @param agent
+     * @param action
+     * @return
+     */
     @Override
     public boolean act(Agent agent, Action action) {
         String act = action.getCode();
@@ -268,12 +313,20 @@ public class WorldLwphCLwEvapImpl extends World {
         return executed;
     }
 
+    /**
+     *
+     * @param agent
+     */
     @Override
     public void init(Agent agent) {
         Termite sim_agent = (Termite) agent;
         sim_agent.run();
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Vector<Action> actions() {
         Vector<Action> acts = new Vector<>();

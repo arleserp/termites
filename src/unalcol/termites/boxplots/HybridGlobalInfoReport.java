@@ -37,6 +37,10 @@ import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 import unalcol.termites.reports.DataCollectedLatexConsolidatorSASOMessagesSend1;
 
+/**
+ *
+ * @author ARODRIGUEZ
+ */
 public class HybridGlobalInfoReport extends ApplicationFrame {
 
     private static final long serialVersionUID = 1L;
@@ -91,6 +95,10 @@ public class HybridGlobalInfoReport extends ApplicationFrame {
         }
     }
 
+    /**
+     *
+     * @param s
+     */
     public HybridGlobalInfoReport(String s) {
         super(s);
         createSuperGraph();
@@ -287,9 +295,10 @@ public class HybridGlobalInfoReport extends ApplicationFrame {
         return false;
     }
 
-    
-     
-      
+    /**
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         if (args.length > 0) {
             experimentsDir = args[0];

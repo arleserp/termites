@@ -9,9 +9,7 @@ import unalcol.termites.VM.TermitesVM;
 import java.util.LinkedList;
 import java.util.Queue;
 import unalcol.termites.TermitesLanguage.TermitesLanguage;
-import unalcol.termites.World.Termite;
 import unalcol.random.RandomUtil;
-import static unalcol.termites.Program.MotionUtil.Roulette;
 import unalcol.termites.Runnable.AppMain;
 
 /**
@@ -24,15 +22,31 @@ public class HybridPheromoneLevyWalkProgramImpl extends TermitesMovementProgram 
     boolean ret = false;
     private int agentIterator;
     private Queue<Integer> movQueue;
-//    TermitesVM termitesvm = new TermitesVMImpl();
     int iterationFailure = 0;
-    public TermitesVM termitesvm = null;
-    //defines an error vector
-    //float myerror[] = new float[super.language.getActionsNumber()];
+
+    /**
+     *
+     */
     public double pf = 0;
+
+    /**
+     *
+     */
     public float[] strategies;
+
+    /**
+     *
+     */
     public int rho;
+
+    /**
+     *
+     */
     public int n;
+
+    /**
+     *
+     */
     public boolean[] history;
 
     float alpha;
@@ -62,6 +76,13 @@ public class HybridPheromoneLevyWalkProgramImpl extends TermitesMovementProgram 
         return dirPoslw;
     }
 
+    /**
+     *
+     * @param _language
+     * @param iterator
+     * @param probFailure
+     * @param failuresByTermite
+     */
     public HybridPheromoneLevyWalkProgramImpl(TermitesLanguage _language, int iterator, float probFailure, int failuresByTermite) {
         super(_language, 0);
         this.agentIterator = iterator;
@@ -104,10 +125,17 @@ public class HybridPheromoneLevyWalkProgramImpl extends TermitesMovementProgram 
         return mov;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isStrategyCarrier() {
         return lastStrategy == 0;
     }
 
+    /**
+     *
+     */
     public void normalizeStrategies() {
         float sum = 0;
         // System.out.println("carriers:[0]" + strategies[0] + ", LevyWalk[1]" + strategies[1]);
@@ -121,6 +149,9 @@ public class HybridPheromoneLevyWalkProgramImpl extends TermitesMovementProgram 
         // System.out.println("after: st[0]" + strategies[0] + ", st[1]" + strategies[1]);
     }
 
+    /**
+     *
+     */
     public void RewardStrategy() {
         float delta = (float) Math.random();
         strategies[lastStrategy] += delta * strategies[lastStrategy];
@@ -133,6 +164,13 @@ public class HybridPheromoneLevyWalkProgramImpl extends TermitesMovementProgram 
         normalizeStrategies();
     }
 
+    /**
+     *
+     * @param pheromone
+     * @param proximitySensor
+     * @param termitesNeighbor
+     * @return
+     */
     public int carry(float[] pheromone, boolean proximitySensor, boolean[] termitesNeighbor) {
         int dirPos = 0;
         ArrayList<Integer> temp = new ArrayList();
@@ -160,6 +198,11 @@ public class HybridPheromoneLevyWalkProgramImpl extends TermitesMovementProgram 
         return dirPos;
     }
 
+    /**
+     *
+     * @param pheromone
+     * @return
+     */
     public static int seek(float[] pheromone) {
         ArrayList<Integer> temp = new ArrayList();
         int dirPos = 0;
@@ -190,6 +233,17 @@ public class HybridPheromoneLevyWalkProgramImpl extends TermitesMovementProgram 
         return dirPos;
     }
 
+    /**
+     *
+     * @param temps
+     * @param pheromone
+     * @param termitesNeighbor
+     * @param seekingStatus
+     * @param message
+     * @param proximitySensor
+     * @param MT
+     * @return
+     */
     @Override
     public int accion(float[] temps, float[] pheromone, boolean[] termitesNeighbor, int seekingStatus, String message, boolean proximitySensor, boolean[] MT) {
         /* If termite has a message then react to this message */
@@ -220,10 +274,11 @@ public class HybridPheromoneLevyWalkProgramImpl extends TermitesMovementProgram 
         }
     }
 
-    public TermitesVM getTermitesvm() {
-        return termitesvm;
-    }
 
+    /**
+     *
+     * @param b
+     */
     public void addHistory(boolean b) {
         history[roundNumber % n] = b;
     }

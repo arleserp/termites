@@ -27,12 +27,16 @@ import unalcol.types.collection.vector.Vector;
  * toroidal or not given some parameters and is a bi-dimensional space of states
  * with a size width x height
  *
- * @author Arles Rodriguez
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public abstract class World extends Environment {
 
     private static boolean Finished;
     private static boolean isCalculating = false;
+
+    /**
+     *
+     */
     public int wallsnumber;
     private Hashtable<Integer, String> failAgentsInformation;
 
@@ -79,6 +83,9 @@ public abstract class World extends Environment {
     private int roundGetInfo = -1;
     private static int idBest = -1;
 
+    /**
+     *
+     */
     public int amountGlobalInfo = 0;
 
     /**
@@ -242,6 +249,9 @@ public abstract class World extends Environment {
         }
     }
 
+    /**
+     *
+     */
     public void nObservers() {
         if (!isFinished()) {
             setChanged();
@@ -601,6 +611,11 @@ public abstract class World extends Environment {
         return agentPerceptVector;
     }
 
+    /**
+     *
+     * @param agent
+     * @return
+     */
     public boolean[] getProximityDirSensorPercept(Agent agent) {
         Termite piece = (Termite) agent;
 
@@ -673,6 +688,10 @@ public abstract class World extends Environment {
         return agentPerceptVector;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getAmountGlobalInfo() {
         amountGlobalInfo = 0;
         for (int y = 0; y < this.height; y++) {
@@ -687,6 +706,9 @@ public abstract class World extends Environment {
         return amountGlobalInfo;
     }
 
+    /**
+     *
+     */
     public void evaporatePheromone() {
         //System.out.println("evap");
         for (int i = 0; i < width; i++) {
@@ -699,6 +721,10 @@ public abstract class World extends Environment {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int calculateWallsNumber() {
         //System.out.println("evap");
         int wallsNumber = 0;
@@ -713,6 +739,13 @@ public abstract class World extends Environment {
         return wallsNumber;
     }
 
+    /**
+     *
+     * @param x
+     * @param y
+     * @param fx
+     * @param fy
+     */
     public void createWallLine(int x, int y, int fx, int fy) {
         if (x == fx) {
             for (; y <= fy; y++) {
@@ -789,6 +822,12 @@ public abstract class World extends Environment {
         wallsnumber = calculateWallsNumber();
     }
 
+    /**
+     *
+     * @param id
+     * @param iter
+     * @param info
+     */
     public void setLastAgentFail(int id, int iter, int info) {
         String inf = id + "," + iter + "," + info;
         getFailAgentsInformation().put(id, inf);
@@ -844,6 +883,11 @@ public abstract class World extends Environment {
         return p;
     }
 
+    /**
+     *
+     * @param aminfo
+     * @return
+     */
     public boolean completeInfo(int aminfo) {
         return aminfo >= (width * height - wallsnumber) * AppMain.stopSuccessRate;
     }

@@ -24,10 +24,23 @@ public abstract class TermitesVM {
     /* VM information */
     private int destinydir = -1;
 
+    /**
+     *
+     */
     public TermitesVM() {
         interpreter = new TermitesInterpreterImpl();
     }
 
+    /**
+     *
+     * @param temps
+     * @param pheromone
+     * @param termitesNeighbor
+     * @param seekingStatus
+     * @param message
+     * @param PI
+     * @param MT
+     */
     public void updatePercepts(float[] temps, float[] pheromone, boolean[] termitesNeighbor, int seekingStatus, String message, boolean PI, boolean MT) {
         this.temps = temps;
         this.pheromone = pheromone;
@@ -52,6 +65,12 @@ public abstract class TermitesVM {
     }
 
     //Loads the program of a termite
+
+    /**
+     *
+     * @param filename
+     * @return
+     */
     public int loadTermiteProgram(String filename) {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filename));
@@ -69,6 +88,11 @@ public abstract class TermitesVM {
         return 0;
     }
 
+    /**
+     *
+     * @param filename
+     * @return
+     */
     public int step(String filename) {
         int returnValue = -1;
         String code = "";
@@ -87,10 +111,18 @@ public abstract class TermitesVM {
         return returnValue;
     }
 
+    /**
+     *
+     * @return
+     */
     public TermitesInterpreter getInterpreter() {
         return interpreter;
     }
 
+    /**
+     *
+     * @return
+     */
     public int step() {
         return -1;
     }

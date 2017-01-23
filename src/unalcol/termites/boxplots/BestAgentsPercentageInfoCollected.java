@@ -97,6 +97,7 @@ public class BestAgentsPercentageInfoCollected extends ApplicationFrame {
      * Creates a new demo.
      *
      * @param title the frame title.
+     * @param pf
      */
     public BestAgentsPercentageInfoCollected(final String title, ArrayList<Double> pf) {
 

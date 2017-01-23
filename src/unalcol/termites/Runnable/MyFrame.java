@@ -3,6 +3,10 @@ package unalcol.termites.Runnable;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * This class is the graphic interface of simulation
+ * @author ARODRIGUEZ
+ */
 public class MyFrame extends Frame implements ActionListener {
 
     int population;
@@ -35,6 +39,18 @@ public class MyFrame extends Frame implements ActionListener {
         myApplet.start();
     } // end constructor*/
 
+    /**
+     *
+     * @param pop
+     * @param popS
+     * @param FailuresbyTermite
+     * @param threshold
+     * @param title
+     * @param width
+     * @param height
+     */
+
+
     public MyFrame(int pop, float popS, int FailuresbyTermite, int threshold, String title, int width, int height) {
         //super("Pop:" + pop + " FP:" + popS + " Failures Termite: " + FailuresbyTermite + " vt:" + threshold); // define frame title
         super(title);
@@ -65,6 +81,10 @@ public class MyFrame extends Frame implements ActionListener {
         dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }
 
+    /**
+     *
+     * @param evt
+     */
     @Override
         public void actionPerformed(ActionEvent evt) {
         if (evt.getSource() instanceof MenuItem) {

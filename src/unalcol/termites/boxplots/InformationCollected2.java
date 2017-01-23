@@ -97,6 +97,7 @@ public class InformationCollected2 extends ApplicationFrame {
      * Creates a new demo.
      *
      * @param title the frame title.
+     * @param pf
      */
     public InformationCollected2(final String title, ArrayList<Double> pf) {
 

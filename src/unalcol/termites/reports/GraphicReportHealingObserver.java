@@ -53,6 +53,10 @@ public class GraphicReportHealingObserver extends java.awt.Frame implements Obse
     String failfilename;
     static boolean firstTime = true;
 
+    /**
+     *
+     * @param probFailure
+     */
     public GraphicReportHealingObserver(float probFailure) {
         initComponents();
         frame2 = new Frame();
@@ -104,6 +108,11 @@ public class GraphicReportHealingObserver extends java.awt.Frame implements Obse
         pack();
     }
 
+    /**
+     *
+     * @param obs
+     * @param arg
+     */
     public void update(Observable obs, Object arg) {
         if (obs instanceof World) {
             //System.out.println("obs" + obs);
@@ -203,10 +212,18 @@ public class GraphicReportHealingObserver extends java.awt.Frame implements Obse
         }
     }
 
+    /**
+     *
+     * @param w
+     */
     public void addObserver(World w) {
         w.addObserver(this);
     }
 
+    /**
+     *
+     * @return
+     */
     public BufferedImage creaImagen() {
         JFreeChart chart = ChartFactory.createXYLineChart(
                 getTechniqueName(AppMain.getMode()), "Round number", "Agents",
@@ -225,6 +242,12 @@ public class GraphicReportHealingObserver extends java.awt.Frame implements Obse
         return image;
     }
 
+    /**
+     *
+     * @param glbInfo
+     * @param export
+     * @return
+     */
     public BufferedImage creaImgGlobalInfo(XYSeries glbInfo, boolean export) {
         JFreeChart chart = ChartFactory.createXYLineChart(
                 getTechniqueName(AppMain.getMode()), "Round number", "GlobalInfo",
@@ -246,6 +269,10 @@ public class GraphicReportHealingObserver extends java.awt.Frame implements Obse
         return image;
     }
 
+    /**
+     *
+     * @param g
+     */
     public void paint(java.awt.Graphics g) {
         grafica = this.creaImagen();
         g.drawImage(grafica, 20, 20, null);

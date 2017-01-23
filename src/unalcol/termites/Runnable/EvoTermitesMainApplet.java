@@ -30,14 +30,25 @@ public class EvoTermitesMainApplet extends java.applet.Applet implements Runnabl
         this.height = h;
     }
 
+    /**
+     *
+     * @return
+     */
     public float getPopS() {
         return popS;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPopul() {
         return popul;
     }
 
+    /**
+     *
+     */
     public void init() {
         setLayout(new BorderLayout());
         bc = new WorldCanvas(this);
@@ -51,6 +62,9 @@ public class EvoTermitesMainApplet extends java.applet.Applet implements Runnabl
         show();
     }
 
+    /**
+     *
+     */
     @Override
     public void start() {
         if (t == null) {
@@ -59,6 +73,9 @@ public class EvoTermitesMainApplet extends java.applet.Applet implements Runnabl
         }
     }
 
+    /**
+     *
+     */
     @Override
     public void stop() {
         if (t != null) {
@@ -67,6 +84,9 @@ public class EvoTermitesMainApplet extends java.applet.Applet implements Runnabl
         }
     }
 
+    /**
+     *
+     */
     public void run() {
         try {
             while (true) {

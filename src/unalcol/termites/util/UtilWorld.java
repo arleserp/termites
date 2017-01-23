@@ -10,6 +10,11 @@ package unalcol.termites.util;
  */
 public class UtilWorld {
 
+    /**
+     *
+     * @param direction
+     * @return
+     */
     public static String toString(int direction) {
         //String st = "";
 
@@ -34,6 +39,11 @@ public class UtilWorld {
         //return st;
     }
 
+    /**
+     *
+     * @param direction
+     * @return
+     */
     public static boolean[] toBit(int direction) {
         boolean bits[] = new boolean[3];
 

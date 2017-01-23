@@ -12,17 +12,26 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Arles Rodriguez
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public class StatisticsNormalDist {
     private ArrayList<Double> data;
     private int size;
     
+    /**
+     *
+     * @param arr
+     * @param s
+     */
     public StatisticsNormalDist(ArrayList<Double> arr, int s){
         data = arr;
         size = s;
     }
     
+    /**
+     *
+     * @return
+     */
     public double getMean()
     {
         double sum = 0.0;
@@ -31,6 +40,10 @@ public class StatisticsNormalDist {
         return sum/getSize();
     }
 
+    /**
+     *
+     * @return
+     */
     public double getVariance()
     {
         double mean = getMean();
@@ -40,6 +53,10 @@ public class StatisticsNormalDist {
         return temp/getSize();
     }
 
+    /**
+     *
+     * @return
+     */
     public double getStdDev()
     {
         double mean = getMean();
@@ -50,6 +67,10 @@ public class StatisticsNormalDist {
         return Math.sqrt(temp/(getSize()-1));
     }
 
+    /**
+     *
+     * @return
+     */
     public double median() 
     {
        double[] b = new double[getData().size()];

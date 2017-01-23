@@ -10,7 +10,17 @@ package unalcol.termites.util;
  */
 import java.io.*;
 
+/**
+ *
+ * @author ARODRIGUEZ
+ */
 public class CopyFile {
+
+    /**
+     *
+     * @param srFile
+     * @param dtFile
+     */
     public static void copyfile(String srFile, String dtFile) {
         try {
             File f1 = new File(srFile);
@@ -39,6 +49,10 @@ public class CopyFile {
         }
     }
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         switch (args.length) {
             case 0:

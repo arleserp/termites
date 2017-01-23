@@ -29,26 +29,52 @@ public final class TermitesInterpreterBinaryImpl extends TermitesInterpreter {
     HashMap rightCode; //this is just for validate healing!
     float probFailure = 0;
     
+    /**
+     *
+     */
     public HashMap program = new HashMap();
+
+    /**
+     *
+     */
     public String[] perceptions = {"100","010","101","011"};
 
-    
+    /**
+     *
+     * @return
+     */
     public int getIteration() {
         return iteration;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getLastIdHealed() {
         return lastIdHealed;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getLastIdInduceEvoMutation() {
         return lastIdInduceEvoMutation;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getLastIdInduceFailure() {
         return lastIdInduceFailure;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getLastIdSick() {
         return lastIdSick;
     }
@@ -59,6 +85,11 @@ public final class TermitesInterpreterBinaryImpl extends TermitesInterpreter {
     int lastIdHealed = -1;
     int lastIdSick=-1;
 
+    /**
+     *
+     * @param filename
+     * @return
+     */
     public final HashMap loadProgram(String filename) {
         String linea;
         HashMap<String, String> h = new HashMap();
@@ -75,6 +106,10 @@ public final class TermitesInterpreterBinaryImpl extends TermitesInterpreter {
         return h;
     }
     
+    /**
+     *
+     * @param changes
+     */
     public void induceFailureToCode(int changes) {
         int pos;
         int posStr;
@@ -93,6 +128,13 @@ public final class TermitesInterpreterBinaryImpl extends TermitesInterpreter {
         }
     }
      
+    /**
+     *
+     * @param iterationFailure
+     * @param iterator
+     * @param probFailure
+     * @param FailuresByTermite
+     */
     public TermitesInterpreterBinaryImpl(int iterationFailure, int iterator, float probFailure, int FailuresByTermite) {
         this.id = iterator;
         this.programCode = null;
@@ -105,6 +147,10 @@ public final class TermitesInterpreterBinaryImpl extends TermitesInterpreter {
         
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int runNextInstruction() {
         try {
@@ -123,6 +169,11 @@ public final class TermitesInterpreterBinaryImpl extends TermitesInterpreter {
         return -1;
     }
       
+    /**
+     *
+     * @param str
+     * @return
+     */
     public static int roulette(String str){
         ArrayList<Integer> pos = new ArrayList<Integer>();
         for(int i = 0; i < str.length(); i++){
@@ -200,12 +251,21 @@ public final class TermitesInterpreterBinaryImpl extends TermitesInterpreter {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public String printProgram() {
         String res = "";
         System.out.println("Program:" + program);
         return res;
     }
 
+    /**
+     *
+     * @param line
+     * @param pos
+     */
     public void updateVotesAboutIns(String line, int pos) {
         boolean hasLine = false;
         
@@ -223,6 +283,10 @@ public final class TermitesInterpreterBinaryImpl extends TermitesInterpreter {
         }
     }
         
+    /**
+     *
+     * @return
+     */
     public String getInsMoreVoted() {
         String line = null;
         int votes = 0;
@@ -234,7 +298,11 @@ public final class TermitesInterpreterBinaryImpl extends TermitesInterpreter {
         return line;
     }
 
-     public int getPosMoreVoted() {
+    /**
+     *
+     * @return
+     */
+    public int getPosMoreVoted() {
         int pos = 0;
         for (int i = 1; i < votesBinaryProgram.size(); i++) {
             if (votesAboutInstruction.get(i) > votesAboutInstruction.get(pos)) {
@@ -244,6 +312,9 @@ public final class TermitesInterpreterBinaryImpl extends TermitesInterpreter {
         return pos;
     }
     
+    /**
+     *
+     */
     public void evolutionaryMutation() {
         int pos = getPosMoreVoted();
         int posline = votesNumberLine.get(pos);
@@ -266,6 +337,11 @@ public final class TermitesInterpreterBinaryImpl extends TermitesInterpreter {
         notifyObservers();
     }
 
+    /**
+     *
+     * @param trheshold
+     * @return
+     */
     public boolean reachThreshold(int trheshold) {
         for(int i = 0; i < votesAboutInstruction.size(); i++) {
             if (votesAboutInstruction.get(i) > trheshold) {
@@ -275,10 +351,18 @@ public final class TermitesInterpreterBinaryImpl extends TermitesInterpreter {
         return false;
     }
        
+    /**
+     *
+     * @return
+     */
     public boolean validateHealingEx() {
         return rightCode.equals(program);
     }
     
+    /**
+     *
+     * @return
+     */
     public boolean validateHealing() {
         boolean hasLine = false;
         if (rightCode.equals(program)) {
@@ -293,6 +377,10 @@ public final class TermitesInterpreterBinaryImpl extends TermitesInterpreter {
         return hasLine;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getTotalVotes() {
         int TotalVotes = 0;
         for (int i = 0; i < votesAboutInstruction.size(); i++) {

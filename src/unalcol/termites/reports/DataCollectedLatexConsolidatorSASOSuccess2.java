@@ -23,10 +23,14 @@ import unalcol.termites.stats.StatisticsNormalDist;
 
 /**
  *
- * @author Arles Rodriguez
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public class DataCollectedLatexConsolidatorSASOSuccess2 {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         String sDirectorio = ".\\experiments\\SASO 2015\\2015-05-17";
         File f = new File(sDirectorio);

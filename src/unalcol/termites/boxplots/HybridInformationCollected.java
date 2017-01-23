@@ -97,6 +97,7 @@ public class HybridInformationCollected extends ApplicationFrame {
      * Creates a new demo.
      *
      * @param title the frame title.
+     * @param pf
      */
     public HybridInformationCollected(final String title, ArrayList<Double> pf) {
         super(title);

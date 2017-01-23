@@ -46,7 +46,7 @@ import unalcol.types.collection.vector.Vector;
  * Factory Class to create a determined kind of World and Program given some
  * arguments
  *
- * @author Arles Rodriguez
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public class ProgramWorldFactory {
 

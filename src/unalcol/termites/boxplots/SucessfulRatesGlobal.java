@@ -44,6 +44,10 @@ import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 import unalcol.termites.reports.DataCollectedLatexConsolidatorSASOMessagesSend1;
 
+/**
+ *
+ * @author ARODRIGUEZ
+ */
 public class SucessfulRatesGlobal extends ApplicationFrame {
 
     private static final long serialVersionUID = 1L;
@@ -95,6 +99,10 @@ public class SucessfulRatesGlobal extends ApplicationFrame {
         }
     }
 
+    /**
+     *
+     * @param s
+     */
     public SucessfulRatesGlobal(String s) {
         super(s);
         ArrayList<Double> pf0 = new ArrayList<>();
@@ -310,6 +318,10 @@ public class SucessfulRatesGlobal extends ApplicationFrame {
         return false;
     }
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         SucessfulRatesGlobal itemlabeldemo2 = new SucessfulRatesGlobal("Sucess Rates");
         itemlabeldemo2.pack();

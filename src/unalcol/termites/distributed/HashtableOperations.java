@@ -20,10 +20,15 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Arles Rodriguez
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public class HashtableOperations {
 
+    /**
+     *
+     * @param A
+     * @return
+     */
     public static int Maximum(Hashtable A) {
         if (!A.isEmpty()) {
             //System.out.println("A" + A);
@@ -33,6 +38,11 @@ public class HashtableOperations {
         }
     }
 
+    /**
+     *
+     * @param A
+     * @return
+     */
     public static int Minimum(Hashtable A) {
         if (!A.isEmpty()) {
             //System.out.println("A" + A);
@@ -42,6 +52,12 @@ public class HashtableOperations {
         }
     }
 
+    /**
+     *
+     * @param A
+     * @param B
+     * @return
+     */
     public static ArrayList Sort(Hashtable A, Hashtable B) {
         Hashtable C = JoinSets(A, B);
         //System.out.println("vals ssssssssssssssssssss" + C.values());
@@ -52,6 +68,12 @@ public class HashtableOperations {
         return E;
     }
 
+    /**
+     *
+     * @param A
+     * @param B
+     * @return
+     */
     public static Hashtable JoinSets(Hashtable A, Hashtable B) {
         Hashtable C;
 
@@ -80,6 +102,12 @@ public class HashtableOperations {
         return C;
     }
 
+    /**
+     *
+     * @param A
+     * @param B
+     * @return
+     */
     public static Hashtable JoinSetsK(Hashtable A, Hashtable B) {
         Hashtable C;
 
@@ -108,6 +136,12 @@ public class HashtableOperations {
         return C;
     }
 
+    /**
+     *
+     * @param A
+     * @param B
+     * @return
+     */
     public static Hashtable DifferenceSets(Hashtable A, Hashtable B) {
         Hashtable C = new Hashtable();
         //System.out.println("A:" + A + " B:" + B);
@@ -126,6 +160,12 @@ public class HashtableOperations {
         return C;
     }
 
+    /**
+     *
+     * @param key
+     * @param B
+     * @return
+     */
     public static boolean BelongsTo(String key, Hashtable B) {
         if (B.isEmpty()) {
             return false;
@@ -133,6 +173,12 @@ public class HashtableOperations {
         return B.containsKey(key);
     }
 
+    /**
+     *
+     * @param A
+     * @param B
+     * @return
+     */
     public static boolean isContained(Hashtable A, Hashtable B) {
         if (A.isEmpty()) {
             return true;
@@ -149,6 +195,11 @@ public class HashtableOperations {
         return true;
     }
 
+    /**
+     *
+     * @param h
+     * @return
+     */
     public static String serializeHashtable(Hashtable h) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos;
@@ -166,6 +217,11 @@ public class HashtableOperations {
         return s;
     }
 
+    /**
+     *
+     * @param s
+     * @return
+     */
     public static Hashtable deserializeHashtable(String s) {
         Hashtable h = null;
         try {
@@ -182,6 +238,11 @@ public class HashtableOperations {
         return h;
     }
 
+    /**
+     *
+     * @param h
+     * @return
+     */
     public static boolean isCutPoint(Hashtable h) {
         int count = 0;
         int i = 0;
@@ -383,6 +444,11 @@ public class HashtableOperations {
         return r;
     }
 
+    /**
+     *
+     * @param A
+     * @return
+     */
     public static double Average(Hashtable A) {
         //System.out.println("vals ssssssssssssssssssss" + C.values());
         Object[] D = (A.values()).toArray();

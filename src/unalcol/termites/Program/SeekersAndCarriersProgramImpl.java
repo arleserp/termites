@@ -23,11 +23,27 @@ public class SeekersAndCarriersProgramImpl extends TermitesMovementProgram {
     private Queue<Integer> movQueue;
 //    TermitesVM termitesvm = new TermitesVMImpl();
     int iterationFailure = 0;
+
+    /**
+     *
+     */
     public TermitesVM termitesvm = null;
     //defines an error vector
     //float myerror[] = new float[super.language.getActionsNumber()];
+
+    /**
+     *
+     */
     public double pf = 0;
 
+    /**
+     *
+     * @param _language
+     * @param world
+     * @param iterator
+     * @param probFailure
+     * @param failuresByTermite
+     */
     public SeekersAndCarriersProgramImpl(TermitesLanguage _language, WorldConsensusImpl world, int iterator, float probFailure, int failuresByTermite) {
         super(_language, 0);
         this.world = world;
@@ -38,7 +54,17 @@ public class SeekersAndCarriersProgramImpl extends TermitesMovementProgram {
         // termitesvm = new TermitesVMBinaryImpl(iterationFailure, iterator, probFailure, failuresByTermite);
     }
 
- 
+    /**
+     *
+     * @param temps
+     * @param pheromone
+     * @param termitesNeighbor
+     * @param seekingStatus
+     * @param message
+     * @param PI
+     * @param MT
+     * @return
+     */
     @Override
     public int accion(float[] temps, float[] pheromone, boolean[] termitesNeighbor, int seekingStatus, String message, boolean PI, boolean[] MT) {
         /* If termite has a message then react to this message */
@@ -54,6 +80,10 @@ public class SeekersAndCarriersProgramImpl extends TermitesMovementProgram {
         return 0;
     }
 
+    /**
+     *
+     * @return
+     */
     public TermitesVM getTermitesvm() {
         return termitesvm;
     }

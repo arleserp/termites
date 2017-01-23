@@ -15,11 +15,27 @@ public class RandomProgramImpl extends TermitesMovementProgram {
 
     float pf;
 
+    /**
+     *
+     * @param _language
+     * @param fp
+     */
     public RandomProgramImpl(TermitesLanguage _language, float fp) {
         super(_language, 0);
         pf = fp;
     }
 
+    /**
+     *
+     * @param PF
+     * @param PD
+     * @param termitesNeighbor
+     * @param PA
+     * @param message
+     * @param PI
+     * @param MT
+     * @return
+     */
     @Override
     public int accion(float[] PF, float[] PD, boolean[] termitesNeighbor, int PA, String message, boolean PI, boolean[] MT) {
         if (Math.random() < pf) {

@@ -97,6 +97,7 @@ public class RoundNumber1 extends ApplicationFrame {
      * Creates a new demo.
      *
      * @param title the frame title.
+     * @param pf
      */
     public RoundNumber1(final String title, ArrayList<Double> pf) {
 

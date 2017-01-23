@@ -7,32 +7,104 @@ import unalcol.agents.Agent;
 import unalcol.agents.AgentProgram;
 import unalcol.termites.Runnable.AppMain;
 
+/**
+ *
+ * @author ARODRIGUEZ
+ */
 public class Termite extends Agent {
 
     private int type = 0;
+
+    /**
+     *
+     */
     public static final int SEEKING = 0;
+
+    /**
+     *
+     */
     public static final int CARRYING = 1;
+
+    /**
+     *
+     */
     public static final int DIAGNOSE = 2;
+
+    /**
+     *
+     */
     public static final int OVERDIAGNOSE = 3;
+
+    /**
+     *
+     */
     public static final int STARTDIAGNOSE = 4;
+
+    /**
+     *
+     */
     public static final int NOTDIAGNOSE = 5;
     private float pheromone;
     private int mystatus;
     private int diagnoseStatus;
     private int id;
+
+    /**
+     *
+     */
     public int voteAboutProgram = 0;
+
+    /**
+     *
+     */
     public int diagnoseNumber = 0;
+
+    /**
+     *
+     */
     public boolean putPheromone = true;
     private int ImGoodCounter = 0;
+
+    /**
+     *
+     */
     public double persProb = 0.5;
+
+    /**
+     *
+     */
     public double diagProb = 0.5;
+
+    /**
+     *
+     */
     public int votesThreshold = 20;
+
+    /**
+     *
+     */
     public int foodIteration;
+
+    /**
+     *
+     */
     public int lastTime;
+
+    /**
+     *
+     */
     public int lostCounter;
     /* This two variables are for the voting threshold */
     private double lambda = 0.5;
+
+    /**
+     *
+     */
     public int votesStatus;
+
+    /**
+     *
+     */
     public int totalVotes;
     private int x;
     private int y;
@@ -52,9 +124,18 @@ public class Termite extends Agent {
     private int maxy;
 
     //DS Simulator
+
+    /**
+     *
+     */
     protected Hashtable<String, Object> properties = new Hashtable<>();
     //LinkedBlockingQueue<Object> mbuffer = new LinkedBlockingQueue<Object>();
 
+    /**
+     *
+     * @param program
+     * @param id
+     */
     public Termite(AgentProgram program, int id) {
         super(program);
         if (AppMain.getMode().equals("oneph") || AppMain.getMode().equals("onephevap") || AppMain.getMode().equals("lwphevap") || AppMain.getMode().equals("hybrid") || AppMain.getMode().equals("hybrid2") || AppMain.getMode().equals("hybrid3") || AppMain.getMode().equals("hybrid4") || AppMain.getMode().equals("lwphevap2") || AppMain.getMode().equals("turnoncontact") || AppMain.getMode().equals("lwphevapMap")) {
@@ -146,39 +227,64 @@ public class Termite extends Agent {
     }
 
     /**
-     * @return the mybelieve
      */
     public void increaseVoteProgram() {
         voteAboutProgram++;
 
     }
 
+    /**
+     *
+     */
     public void decreaseVoteProgram() {
         voteAboutProgram--;
     }
 
+    /**
+     *
+     * @return
+     */
     public String printVotes() {
         String sVotes = "";
         sVotes = id + ";" + voteAboutProgram;
         return sVotes;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getVoteAboutProgram() {
         return voteAboutProgram;
     }
 
+    /**
+     *
+     * @param voteAboutProgram
+     */
     public void setVoteAboutProgram(int voteAboutProgram) {
         this.voteAboutProgram = voteAboutProgram;
     }
     
+    /**
+     *
+     */
     public void increaseImGoodCounter() {
         this.ImGoodCounter++;
     }
 
+    /**
+     *
+     * @param ImGoodCounter
+     */
     public void setImGoodCounter(int ImGoodCounter) {
         this.ImGoodCounter = ImGoodCounter;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getImGoodCounter() {
         return ImGoodCounter;
     }
@@ -197,10 +303,16 @@ public class Termite extends Agent {
         this.lambda = lambda;
     }
 
+    /**
+     *
+     */
     public void votesplus() {
         this.votesStatus++;
     }
 
+    /**
+     *
+     */
     public void votesneg() {
         this.votesStatus--;
     }
@@ -233,6 +345,10 @@ public class Termite extends Agent {
         this.y = y;
     }
 
+    /**
+     *
+     * @param t
+     */
     public void setType(int t) {
         this.type = t;
     }
@@ -245,14 +361,30 @@ public class Termite extends Agent {
     }
 
     //DS Part
+
+    /**
+     *
+     * @param key
+     * @param value
+     */
     public void setAttribute(String key, Object value) {
         properties.put(key, value);
     }
 
+    /**
+     *
+     * @param key
+     * @return
+     */
     public Object getAttribute(String key) {
         return properties.get(key);
     }
 
+    /**
+     *
+     * @param key
+     * @return
+     */
     public boolean removeAttribute(String key) {
         if (properties.remove(key) != null) {
             return true;
@@ -287,6 +419,10 @@ public class Termite extends Agent {
         this.round = round;
     }
 
+    /**
+     *
+     * @param msg
+     */
     public void log(String msg) {
         System.out.println("Agent: " + this.getAttribute("ID") + " : " + msg);
     }
@@ -319,12 +455,18 @@ public class Termite extends Agent {
         this.nMsgRecv = nMsgRecv;
     }
 
+    /**
+     *
+     */
     public void incMsgSend() {
         synchronized (Termite.class) {
             nMsgSend++;
         }
     }
 
+    /**
+     *
+     */
     public void incMsgRecv() {
         synchronized (Termite.class) {
             nMsgRecv++;
@@ -359,6 +501,10 @@ public class Termite extends Agent {
         this.infHistory = infHistory;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getAmountInfo() {
         int aminfo = 0;
         float[][] inf = (float[][]) this.getAttribute("infi");
@@ -387,7 +533,6 @@ public class Termite extends Agent {
     }
 
     /**
-     * @param infDelta the roundsWithoutNewInfo to set
      */
     public void addRoundsWithoutNewInfo() {
         this.roundsWithoutNewInfo++;
@@ -408,7 +553,6 @@ public class Termite extends Agent {
     }
 
     /**
-     * @return increase explored terrain
      */
     public void incExploredTerrain() {
         exploredTerrain++;

@@ -29,9 +29,17 @@ public class OnlySeekersLevyWalkProgramImpl2 extends TermitesMovementProgram {
     private Queue<Integer> movQueue;
 //    TermitesVM termitesvm = new TermitesVMImpl();
     int iterationFailure = 0;
+
+    /**
+     *
+     */
     public TermitesVM termitesvm = null;
     //defines an error vector
     //float myerror[] = new float[super.language.getActionsNumber()];
+
+    /**
+     *
+     */
     public double pf = 0;
 
     float alpha;
@@ -39,6 +47,14 @@ public class OnlySeekersLevyWalkProgramImpl2 extends TermitesMovementProgram {
     int dirPoslw;
     float T;
 
+    /**
+     *
+     * @param _language
+     * @param world
+     * @param iterator
+     * @param probFailure
+     * @param failuresByTermite
+     */
     public OnlySeekersLevyWalkProgramImpl2(TermitesLanguage _language, WorldConsensusImpl world, int iterator, float probFailure, int failuresByTermite) {
         super(_language, 0);
         this.world = world;
@@ -90,6 +106,13 @@ public class OnlySeekersLevyWalkProgramImpl2 extends TermitesMovementProgram {
         return mov;
     }
 
+    /**
+     *
+     * @param pheromone
+     * @param proximitySensor
+     * @param termitesNeighbor
+     * @return
+     */
     public int seek(float[] pheromone, boolean proximitySensor, boolean[] termitesNeighbor) {
         int dirPos = 0;
         double q0 = 0.9;
@@ -130,6 +153,13 @@ public class OnlySeekersLevyWalkProgramImpl2 extends TermitesMovementProgram {
         return dirPos;
     }
 
+    /**
+     *
+     * @param pheromone
+     * @param proximitySensor
+     * @param termitesNeighbor
+     * @return
+     */
     public int carry(float[] pheromone, boolean proximitySensor, boolean[] termitesNeighbor) {
         int dirPos = 0;
         double q0 = 0.9;
@@ -171,6 +201,17 @@ public class OnlySeekersLevyWalkProgramImpl2 extends TermitesMovementProgram {
         return dirPos;
     }
 
+    /**
+     *
+     * @param temps
+     * @param pheromone
+     * @param termitesNeighbor
+     * @param seekingStatus
+     * @param message
+     * @param proximitySensor
+     * @param MT
+     * @return
+     */
     @Override
     public int accion(float[] temps, float[] pheromone, boolean[] termitesNeighbor, int seekingStatus, String message, boolean proximitySensor, boolean[] MT) {
         /* If termite has a message then react to this message */
@@ -186,6 +227,10 @@ public class OnlySeekersLevyWalkProgramImpl2 extends TermitesMovementProgram {
         return 0;
     }
 
+    /**
+     *
+     * @return
+     */
     public TermitesVM getTermitesvm() {
         return termitesvm;
     }

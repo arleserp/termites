@@ -20,10 +20,15 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Arles Rodriguez
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public class StringSerializer {
 
+    /**
+     *
+     * @param h
+     * @return
+     */
     public static String serialize(Object h) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos = null;
@@ -42,6 +47,11 @@ public class StringSerializer {
         return s;
     }
 
+    /**
+     *
+     * @param s
+     * @return
+     */
     public static Object deserialize(String s) {
         Object h = null;
         try {

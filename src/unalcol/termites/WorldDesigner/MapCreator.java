@@ -6,7 +6,7 @@ package unalcol.termites.WorldDesigner;
 
 /**
  *
- * @author Arles Rodriguez
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public class MapCreator {
 

@@ -20,13 +20,45 @@ public class HybridLwSandLwCProgramImpl extends TermitesMovementProgram {
     int counter = 0;
     boolean ret = false;
     int iterationFailure = 0;
+
+    /**
+     *
+     */
     public TermitesVM termitesvm = null;
+
+    /**
+     *
+     */
     public double pf = 0;
+
+    /**
+     *
+     */
     public float[] strategies;
+
+    /**
+     *
+     */
     public float[] strategiesSeeker;
+
+    /**
+     *
+     */
     public float[] strategiesCarrier;
+
+    /**
+     *
+     */
     public int rho;
+
+    /**
+     *
+     */
     public int n;
+
+    /**
+     *
+     */
     public boolean[] history;
     float alpha;
     float acumulator;
@@ -57,6 +89,12 @@ public class HybridLwSandLwCProgramImpl extends TermitesMovementProgram {
         return dirPoslw;
     }
 
+    /**
+     *
+     * @param _language
+     * @param probFailure
+     * @param failuresByTermite
+     */
     public HybridLwSandLwCProgramImpl(TermitesLanguage _language, float probFailure, int failuresByTermite) {
         super(_language, 0);
         pf = probFailure;
@@ -103,15 +141,25 @@ public class HybridLwSandLwCProgramImpl extends TermitesMovementProgram {
         return mov;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isStrategyCarrier() {
         return lastStrategy == 0;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isStrategySeeker() {
         return lastStrategy == 1;
     }
 
-
+    /**
+     *
+     */
     public void normalizeStrategies() {
         float sum = 0;
         // System.out.println("carriers:[0]" + strategies[0] + ", seekers[1]" + strategies[1]);
@@ -146,6 +194,9 @@ public class HybridLwSandLwCProgramImpl extends TermitesMovementProgram {
         // System.out.println("after LevyWalk:[0]" + strategiesSeeker[0] + ", seek[1]" + strategiesSeeker[1]);
     }
 
+    /**
+     *
+     */
     public void RewardStrategy() {
         float delta = (float) Math.random();
         strategies[lastStrategy] += delta * strategies[lastStrategy];
@@ -169,6 +220,14 @@ public class HybridLwSandLwCProgramImpl extends TermitesMovementProgram {
         normalizeStrategies();
     }
 
+    /**
+     *
+     * @param pheromone
+     * @param proximitySensor
+     * @param termitesNeighbor
+     * @param n
+     * @return
+     */
     public int carry(float[] pheromone, boolean proximitySensor, boolean[] termitesNeighbor, int n) {
         int dirPos = 0;
 
@@ -197,6 +256,12 @@ public class HybridLwSandLwCProgramImpl extends TermitesMovementProgram {
         return dirPos;
     }
 
+    /**
+     *
+     * @param pheromone
+     * @param n
+     * @return
+     */
     public static int seek(float[] pheromone, int n) {
         ArrayList<Integer> temp = new ArrayList();
         int dirPos = 0;
@@ -223,6 +288,17 @@ public class HybridLwSandLwCProgramImpl extends TermitesMovementProgram {
         return dirPos;
     }
 
+    /**
+     *
+     * @param temps
+     * @param pheromone
+     * @param termitesNeighbor
+     * @param seekingStatus
+     * @param message
+     * @param proximitySensor
+     * @param MT
+     * @return
+     */
     @Override
     public int accion(float[] temps, float[] pheromone, boolean[] termitesNeighbor, int seekingStatus, String message, boolean proximitySensor, boolean[] MT) {
         /* If termite has a message then react to this message */
@@ -254,10 +330,18 @@ public class HybridLwSandLwCProgramImpl extends TermitesMovementProgram {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public TermitesVM getTermitesvm() {
         return termitesvm;
     }
 
+    /**
+     *
+     * @param b
+     */
     public void addHistory(boolean b) {
         history[roundNumber % n] = b;
     }

@@ -9,10 +9,14 @@ import java.awt.Frame;
 
 /**
  *
- * @author Arles Rodriguez
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public class GenerateFileLocations {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         // define frame, its size and make it visible
         System.out.println("worldW:" + args[0]);

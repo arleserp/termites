@@ -19,7 +19,7 @@ import static unalcol.termites.Runnable.AppMain.graph;
 
 /**
  *
- * @author Arles Rodriguez
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public class MapFrame extends Frame implements ActionListener {
 
@@ -47,6 +47,11 @@ public class MapFrame extends Frame implements ActionListener {
 
     }
 
+    /**
+     *
+     * @param w
+     * @param h
+     */
     public void update(int w, int h) {
         if (r.width != bounds().width || r.height != bounds().height) {
             image = createImage(bounds().width, bounds().height);
@@ -61,6 +66,11 @@ public class MapFrame extends Frame implements ActionListener {
         repaint();
     }
 
+    /**
+     *
+     * @param w
+     * @param h
+     */
     public void initMap(int w, int h) {
         map = new int[w][h];
 
@@ -71,6 +81,12 @@ public class MapFrame extends Frame implements ActionListener {
         }
     }
 
+    /**
+     *
+     * @param g
+     * @param w
+     * @param h
+     */
     public void render(Graphics g, int w, int h) {
 
         float xr = r.width / w;
@@ -103,6 +119,10 @@ public class MapFrame extends Frame implements ActionListener {
         }
     }
 
+    /**
+     *
+     * @param evt
+     */
     @Override
     public void actionPerformed(ActionEvent evt) {
         if (evt.getSource() instanceof MenuItem) {

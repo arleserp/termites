@@ -141,6 +141,7 @@ public class InformationCollected1 extends ApplicationFrame {
      * Creates a new demo.
      *
      * @param title the frame title.
+     * @param pf
      */
     public InformationCollected1(final String title, ArrayList<Double> pf) {
         super(title);

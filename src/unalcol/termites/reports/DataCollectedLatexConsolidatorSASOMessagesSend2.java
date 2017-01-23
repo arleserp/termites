@@ -22,10 +22,14 @@ import unalcol.termites.stats.StatisticsNormalDist;
 
 /**
  *
- * @author Arles Rodriguez
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public class DataCollectedLatexConsolidatorSASOMessagesSend2 {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         String sDirectorio = ".";
         File f = new File(sDirectorio);

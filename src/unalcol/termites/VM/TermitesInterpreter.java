@@ -2,6 +2,10 @@ package unalcol.termites.VM;
 import java.util.Observable;
 import unalcol.termites.World.Termite;
 
+/**
+ *
+ * @author ARODRIGUEZ
+ */
 public abstract class TermitesInterpreter extends Observable {
     boolean running;
     int id;
@@ -13,10 +17,18 @@ public abstract class TermitesInterpreter extends Observable {
     private int seekingStatus;
     private String message;
     
+    /**
+     *
+     */
     public TermitesInterpreter() {
         operationNumber = 0;
     }
 
+    /**
+     *
+     * @param ID
+     * @param code
+     */
     public TermitesInterpreter(int ID, String code) {
         interpret(code);
         id = ID;
@@ -24,6 +36,16 @@ public abstract class TermitesInterpreter extends Observable {
         operationNumber = 0;
     }
 
+    /**
+     *
+     * @param temps
+     * @param pheromone
+     * @param termitesNeighbor
+     * @param seekingStatus
+     * @param message
+     * @param PI
+     * @param MT
+     */
     public void updatePercepts(float[] temps, float[] pheromone, boolean[] termitesNeighbor, int seekingStatus, String message, boolean PI, boolean MT) {
         this.pheromone = pheromone;
         this.termitesNeighbor = termitesNeighbor;
@@ -31,6 +53,11 @@ public abstract class TermitesInterpreter extends Observable {
         this.message = message;
     }
 
+    /**
+     *
+     * @param code
+     * @return
+     */
     public int runNextInstruction(String code) {
         //boolean flag = true;
         String[] code_lines = code.split("\n");
@@ -54,6 +81,11 @@ public abstract class TermitesInterpreter extends Observable {
         return retCode;
     }
 
+    /**
+     *
+     * @param code
+     * @return
+     */
     protected boolean interpret(String code) {
         boolean flag = true;
         String[] code_lines = code.split("\n");
@@ -72,6 +104,13 @@ public abstract class TermitesInterpreter extends Observable {
         return flag;
     }
 
+    /**
+     *
+     * @param code_line
+     * @param line
+     * @return
+     * @throws Exception
+     */
     public int[] operation(String code_line, int line) throws Exception {
         String[] oper = code_line.split(" ");
         if (oper.length > 0) {
@@ -105,14 +144,25 @@ public abstract class TermitesInterpreter extends Observable {
         return null;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isRunning() {
         return running;
     }
 
+    /**
+     *
+     */
     public void stop() {
         running = false;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId() {
         return id;
     }
@@ -154,6 +204,10 @@ public abstract class TermitesInterpreter extends Observable {
         return code;
     }
 
+    /**
+     *
+     * @return
+     */
     public int seek() {
         int dirPos = 0;
         boolean useRandomdir = true;
@@ -170,6 +224,10 @@ public abstract class TermitesInterpreter extends Observable {
         return dirPos; 
     }
 
+    /**
+     *
+     * @return
+     */
     public int carry() {
 //        if (seekingStatus == Termite.CARRYING) {
        int dirPos = 0;
@@ -192,6 +250,10 @@ public abstract class TermitesInterpreter extends Observable {
         return -1;
     }
 
+    /**
+     *
+     * @return
+     */
     public int isSeeking() {
         if (this.getSeekingStatus() != Termite.SEEKING) {
             this.operationNumber++;
@@ -199,6 +261,10 @@ public abstract class TermitesInterpreter extends Observable {
         return -1;
     }
 
+    /**
+     *
+     * @return
+     */
     public int isCarrying() {
         if (this.getSeekingStatus() != Termite.CARRYING) {
             this.operationNumber++;
@@ -223,6 +289,10 @@ public abstract class TermitesInterpreter extends Observable {
         return -1;
     }
 
+    /**
+     *
+     * @return
+     */
     public int diagnose() {
         return 9;
     }

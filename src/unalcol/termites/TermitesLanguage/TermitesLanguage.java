@@ -10,10 +10,20 @@ import unalcol.agents.simulate.util.Language;
  * @author arles.rodriguez
  */
 public class TermitesLanguage implements Language {
+
+    /**
+     *
+     */
     protected String[] percepts = null;
+
+    /**
+     *
+     */
     protected String[] actions = null;
 
-
+    /**
+     *
+     */
     public TermitesLanguage() {
         //Der|downDer|Down|DownIzq|Izq|UpIzq|Up|UpDer|hello
         //actions = new String[]{"none", "down", "left", "right", "up", "rotate", "downright", "downleft", "upleft", "upright"};
@@ -21,6 +31,11 @@ public class TermitesLanguage implements Language {
         percepts = new String[] {"temps", "pheromone", "neighborTermite", "seekingStatus", "msg" };
     }
     
+    /**
+     *
+     * @param action
+     * @return
+     */
     public int getActionIndex(String action) {
         for(int i= 0; i < actions.length; i++)
             if(action.equals(actions[i]))
@@ -30,7 +45,11 @@ public class TermitesLanguage implements Language {
         return 0;
     }
 
-  
+    /**
+     *
+     * @param percept
+     * @return
+     */
     public int getPerceptIndex(String percept) {
         /*if (percept.equals(SOLVED)) {
             return (getPerceptsNumber() - 1);
@@ -56,6 +75,12 @@ public class TermitesLanguage implements Language {
     }
 
     //TOFIX: aca hay algo raro.
+
+    /**
+     *
+     * @param index
+     * @return
+     */
     public String getAction(int index) {
         if(index  < 0)
             return actions[8];
@@ -67,6 +92,11 @@ public class TermitesLanguage implements Language {
         return actions[actions.length -1];
     }
 
+    /**
+     *
+     * @param index
+     * @return
+     */
     public String getPercept(int index) {
         if (index < getPerceptsNumber() - 1) {
             return percepts[index];
@@ -75,15 +105,27 @@ public class TermitesLanguage implements Language {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int getActionsNumber() {
         return actions.length;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPerceptsNumber() {
         //ROW*COLUMN +  SOLVED
         return  percepts.length;
     }
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
         TermitesLanguage language = new TermitesLanguage();

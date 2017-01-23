@@ -17,10 +17,21 @@ import java.io.FileReader;
  */
 public class TermitesVMBinaryImpl extends TermitesVM {
 
+    /**
+     *
+     * @param iterationFailure
+     * @param iterator
+     * @param failureProb
+     * @param FailuresByTermite
+     */
     public TermitesVMBinaryImpl(int iterationFailure, int iterator, float failureProb, int FailuresByTermite) {
         this.interpreter = new TermitesInterpreterBinaryImpl(iterationFailure, iterator, failureProb, FailuresByTermite);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int step() {
         return interpreter.runNextInstruction();

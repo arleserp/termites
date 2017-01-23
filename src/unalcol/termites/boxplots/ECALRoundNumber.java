@@ -97,6 +97,7 @@ public class ECALRoundNumber extends ApplicationFrame {
      * Creates a new demo.
      *
      * @param title the frame title.
+     * @param pf
      */
     public ECALRoundNumber(final String title, ArrayList<Double> pf) {
 

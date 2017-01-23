@@ -28,12 +28,28 @@ public class SequentialProgramImpl extends TermitesMovementProgram {
     private Queue<Integer> movQueue;
 //    TermitesVM termitesvm = new TermitesVMImpl();
     int iterationFailure = 0;
+
+    /**
+     *
+     */
     public TermitesVM termitesvm = null;
     //defines an error vector
     //float myerror[] = new float[super.language.getActionsNumber()];
+
+    /**
+     *
+     */
     public double pf = 0;
     int currentDir;
 
+    /**
+     *
+     * @param _language
+     * @param world
+     * @param iterator
+     * @param probFailure
+     * @param failuresByTermite
+     */
     public SequentialProgramImpl(TermitesLanguage _language, WorldConsensusImpl world, int iterator, float probFailure, int failuresByTermite) {
         super(_language, 0);
         this.world = world;
@@ -102,6 +118,17 @@ public class SequentialProgramImpl extends TermitesMovementProgram {
         return currentDir;
     }
 
+    /**
+     *
+     * @param temps
+     * @param pheromone
+     * @param termitesNeighbor
+     * @param seekingStatus
+     * @param message
+     * @param proximitySensor
+     * @param proximityPerception
+     * @return
+     */
     @Override
     //
     public int accion(float[] temps, float[] pheromone, boolean[] termitesNeighbor, int seekingStatus, String message, boolean proximitySensor, boolean[] proximityPerception) {
@@ -120,6 +147,10 @@ public class SequentialProgramImpl extends TermitesMovementProgram {
         return currentDir;
     }
 
+    /**
+     *
+     * @return
+     */
     public TermitesVM getTermitesvm() {
         return termitesvm;
     }

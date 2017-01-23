@@ -28,11 +28,27 @@ public class PheromoneExplorationProgramImpl implements AgentProgram {
     private Queue<Integer> movQueue;
 //    TermitesVM termitesvm = new TermitesVMImpl();
     int iterationFailure = 0;
+
+    /**
+     *
+     */
     public TermitesVM termitesvm = null;
     //defines an error vector
     //float myerror[] = new float[super.language.getActionsNumber()];
+
+    /**
+     *
+     */
     public double pf = 0;
 
+    /**
+     *
+     * @param _language
+     * @param world
+     * @param iterator
+     * @param probFailure
+     * @param failuresByTermite
+     */
     public PheromoneExplorationProgramImpl(TermitesLanguage _language, WorldConsensusImpl world, int iterator, float probFailure, int failuresByTermite) {
         this.world = world;
         this.agentIterator = iterator;
@@ -60,6 +76,11 @@ public class PheromoneExplorationProgramImpl implements AgentProgram {
         return mov;
     }
 
+    /**
+     *
+     * @param pheromone
+     * @return
+     */
     public int seek(float[] pheromone) {
         int dirPos = 0;
         boolean useRandomdir = true;
@@ -81,6 +102,11 @@ public class PheromoneExplorationProgramImpl implements AgentProgram {
         return dirPos;
     }
 
+    /**
+     *
+     * @param pheromone
+     * @return
+     */
     public int carry(float[] pheromone) {
         int dirPos = 0;
         boolean useRandomdir = true;
@@ -96,6 +122,17 @@ public class PheromoneExplorationProgramImpl implements AgentProgram {
         return dirPos;
     }
 
+    /**
+     *
+     * @param temps
+     * @param pheromone
+     * @param idNeighbor
+     * @param seekingStatus
+     * @param message
+     * @param PI
+     * @param MT
+     * @return
+     */
     public int accion(float[] temps, float[] pheromone, String idNeighbor, int seekingStatus, String message, boolean PI, boolean MT) {
         /* If termite has a message then react to this message */
         if (Math.random() < pf) {
@@ -111,10 +148,19 @@ public class PheromoneExplorationProgramImpl implements AgentProgram {
         return 0;
     }
 
+    /**
+     *
+     * @return
+     */
     public TermitesVM getTermitesvm() {
         return termitesvm;
     }
 
+    /**
+     *
+     * @param p
+     * @return
+     */
     @Override
     public Action compute(Percept p) {
         if ((String) p.getAttribute("idneighbor") != null) {
@@ -127,6 +173,9 @@ public class PheromoneExplorationProgramImpl implements AgentProgram {
 
     }
 
+    /**
+     *
+     */
     @Override
     public void init() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

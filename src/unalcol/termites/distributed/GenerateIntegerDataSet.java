@@ -25,7 +25,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Arles Rodriguez
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public class GenerateIntegerDataSet implements Serializable {
 
@@ -35,6 +35,10 @@ public class GenerateIntegerDataSet implements Serializable {
     private int channelNumber;
     private int eppsIter;
 
+    /**
+     *
+     * @param datasize
+     */
     public GenerateIntegerDataSet(int datasize) {
         n = datasize;
         input = new ArrayList();
@@ -45,6 +49,13 @@ public class GenerateIntegerDataSet implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param datasize
+     * @param chann
+     * @param eppstein
+     * @param constant
+     */
     public GenerateIntegerDataSet(int datasize, int chann, int eppstein, int constant) {
         n = datasize;
         input = new ArrayList();
@@ -56,6 +67,10 @@ public class GenerateIntegerDataSet implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param filename
+     */
     public void saveFile(String filename) {
         try {
             OutputStream file = new FileOutputStream(filename);
@@ -73,6 +88,11 @@ public class GenerateIntegerDataSet implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param filename
+     * @return
+     */
     public static GenerateIntegerDataSet loadFile(String filename) {
         InputStream file;
         GenerateIntegerDataSet ds = null;
@@ -90,6 +110,10 @@ public class GenerateIntegerDataSet implements Serializable {
         return ds;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getNext() {
         if(i >= input.size()){
             //System.out.println("The End.");
@@ -101,6 +125,10 @@ public class GenerateIntegerDataSet implements Serializable {
         return t;
     }
 
+    /**
+     *
+     * @return
+     */
     public String toString() {
         return input.toString();
     }
@@ -133,10 +161,18 @@ public class GenerateIntegerDataSet implements Serializable {
         return eppsIter;
     }
 
+    /**
+     *
+     * @return
+     */
     public int Min() {
         return (int) Collections.min(input);
     }
     
+    /**
+     *
+     * @return
+     */
     public ArrayList Sort(){
         Object[] D = (input).toArray();
         Arrays.sort(D);
@@ -145,6 +181,10 @@ public class GenerateIntegerDataSet implements Serializable {
         return E;
     }
     
+    /**
+     *
+     * @return
+     */
     public double avg(){
         double sum = 0.0;
         for(Integer data: input){

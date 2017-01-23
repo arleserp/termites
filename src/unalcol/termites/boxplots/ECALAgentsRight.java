@@ -84,7 +84,7 @@ import unalcol.termites.reports.DataCollectedLatexConsolidatorSASOMessagesSend1;
 /**
  * 
  *
- * @author Arles Rodriguez
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public class ECALAgentsRight extends ApplicationFrame {
 
@@ -97,6 +97,7 @@ public class ECALAgentsRight extends ApplicationFrame {
      * Creates a new demo.
      *
      * @param title the frame title.
+     * @param pf
      */
     public ECALAgentsRight(final String title, ArrayList<Double> pf) {
 

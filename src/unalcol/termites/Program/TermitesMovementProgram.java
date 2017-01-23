@@ -7,51 +7,80 @@ import unalcol.types.collection.vector.*;
 import unalcol.agents.Action;
 
 /**
- * <p>
- * Title: </p>
- *
- * <p>
- * Description: </p>
- *
- * <p>
- * Copyright: Copyright (c) 2007</p>
- *
- * <p>
- * Company: Kunsamu</p>
- *
- * @author Jonatan Gómez
- * @version 1.0
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
+ * Based on unalcol agents by  
  */
 public abstract class TermitesMovementProgram implements AgentProgram {
 
+    /**
+     *
+     */
     protected TermitesLanguage language;
+
+    /**
+     *
+     */
     protected Vector<String> cmd = new Vector<String>();
+
+    /**
+     *
+     */
     protected int agentPos;
+
+    /**
+     *
+     */
     public double pf;
 
+    /**
+     *
+     */
     public TermitesMovementProgram() {
     }
 
+    /**
+     *
+     * @param _language
+     * @param agent
+     */
     public TermitesMovementProgram(TermitesLanguage _language, int agent) {
         language = _language;
         agentPos = agent;
     }
 
+    /**
+     *
+     * @param _language
+     */
     public void setLanguage(TermitesLanguage _language) {
         language = _language;
     }
 
+    /**
+     *
+     */
     public void init() {
         cmd.clear();
     }
 
+    /**
+     *
+     * @param temps
+     * @param pheromone
+     * @param termitesNeighbor
+     * @param seekingStatus
+     * @param message
+     * @param proximitySensor
+     * @param proximityDirSensor
+     * @return
+     */
     public abstract int accion(float[] temps, float[] pheromone, boolean[] termitesNeighbor, int seekingStatus, String message, boolean proximitySensor, boolean[] proximityDirSensor);
 
 
     /**
      * execute
      *
-     * @param perception Perception
+     * @param p
      * @return Action[]
      */
     public Action compute(Percept p) {
@@ -81,7 +110,7 @@ public abstract class TermitesMovementProgram implements AgentProgram {
     /**
      * goalAchieved
      *
-     * @param perception Perception
+     * @param p
      * @return boolean
      */
     public boolean goalAchieved(Percept p) {

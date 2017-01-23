@@ -6,16 +6,16 @@ package unalcol.termites.Runnable;
 
 import java.awt.*;
 import java.awt.event.WindowEvent;
-import javax.swing.WindowConstants;
 
 /**
- *
- * @author Arles Rodriguez
+ * Main class of simulation of termites in a bidimensional environment
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
+ * @version 1.0
  */
 public class AppMain {
 
     /**
-     * Determines the maximum number of iteration
+     * Determines the maximum number of iterations
      */
     public static int maxIter = 3000;
 
@@ -44,28 +44,28 @@ public class AppMain {
      */
     public static String showInfoIntersect = "off";
 
-    /*
+    /**
      * defines a size of history for hybrid algorithm
      */
     public static int historySize = 20;
 
-    /*
+    /**
      * defines a round to execute roulette hybrid algorithm
      */
     public static int hybridThreshold = 5;
 
-    /*
+    /**
      * /stop simulation 
      */
     public static boolean stop = false;
 
-    /*
+    /**
      * Defines if create maze of not
      * [mazeoff|mazeon]   
      */
     public static String maze = "mazeoff";
 
-    /*
+    /**
      *  Defines a success rate to stop experiments
      * 
      */
@@ -75,6 +75,11 @@ public class AppMain {
      *
      *  Defines if agents would start from a central location or not
      */
+
+    /**
+     *
+     */
+
     public static String startCentralLocation = "randomLocation";
 
     /*
@@ -191,22 +196,12 @@ public class AppMain {
                 myFrame.setBounds(10, 10, width, height); // this time use a predefined frame size/position
                 myFrame.dispatchEvent(new WindowEvent(myFrame, WindowEvent.WINDOW_CLOSING));
 
-                //myFrame.setBounds(10, 10, 208, 248); // this time use a predefined frame size/position
-                //myFrame.setBounds(10, 10, 408, 446); // this time use a predefined frame size/position
                 myFrame.setVisible(true);
 
-                //myFrame2 = new MyFrame(population, pf, width, width, title, width, width);
-                //myFrame2.setBounds(10, 10, width, height); // this time use a predefined frame size/position
-                //myFrame2.dispatchEvent(new WindowEvent(myFrame, WindowEvent.WINDOW_CLOSING));
-                //myFrame.setBounds(10, 10, 208, 248); // this time use a predefined frame size/position
-                //myFrame.setBounds(10, 10, 408, 446); // this time use a predefined frame size/position
-                //mFrame2.setVisible(true);
             } else {
                 WorldThread w = new WorldThread(population, pf, width, height);
                 w.init();
                 w.run();
-                //myFrame.setVisible(true);
-                //myFrame.setState(Frame.ICONIFIED);
                 System.out.println("running without graphics...");
             }
         } else {
@@ -221,5 +216,4 @@ public class AppMain {
     public static String getMode() {
         return mode;
     }
-} // end classs
-
+} 

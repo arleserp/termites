@@ -22,15 +22,38 @@ import unalcol.types.collection.vector.Vector;
  */
 public class WorldTemperaturesOneStepOnePheromoneEvaporationMapImpl extends World {
 
+    /**
+     *
+     */
     public Vector<Agent> Pieces;
     TermitesLanguage language;
+
+    /**
+     *
+     */
     public Vector<int[]> Targets;
+
+    /**
+     *
+     */
     public int currAgent;
+
+    /**
+     *
+     */
     public int seconds;
     Hashtable<String, ConcurrentLinkedQueue> mbuffer = new Hashtable<String, ConcurrentLinkedQueue>();
     GenerateIntegerDataSet ds;
 
     /*constructor called by world canvas */
+
+    /**
+     *
+     * @param agents
+     * @param w
+     * @param h
+     */
+
     public WorldTemperaturesOneStepOnePheromoneEvaporationMapImpl(Vector<Agent> agents, int w, int h) {
         super(agents, w, h);
         width = w;
@@ -64,6 +87,10 @@ public class WorldTemperaturesOneStepOnePheromoneEvaporationMapImpl extends Worl
         return m;
     }
 
+    /**
+     *
+     * @param m
+     */
     public void printMatrix(double[][] m) {
         for (double[] m1 : m) {
             for (int j = 0; j < m[0].length; j++) {
@@ -73,10 +100,18 @@ public class WorldTemperaturesOneStepOnePheromoneEvaporationMapImpl extends Worl
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public Vector getTargets() {
         return Targets;
     }
 
+    /**
+     *
+     * @param pTargets
+     */
     public void setTargets(Vector pTargets) {
         for (int i = 0; i < pTargets.size(); i++) {
             int input2[] = (int[]) pTargets.get(i);
@@ -103,6 +138,10 @@ public class WorldTemperaturesOneStepOnePheromoneEvaporationMapImpl extends Worl
         return states[x % width][y % height];
     }
 
+    /**
+     *
+     * @param piece
+     */
     public void DrawPieceInWorld(Termite piece) {
 
         int x = piece.getX();
@@ -156,6 +195,12 @@ public class WorldTemperaturesOneStepOnePheromoneEvaporationMapImpl extends Worl
         }
     }
 
+    /**
+     *
+     * @param agent
+     * @param action
+     * @return
+     */
     public boolean act(Agent agent, Action action) {
         String act = action.getCode();
         Termite t = (Termite) agent;
@@ -291,12 +336,20 @@ public class WorldTemperaturesOneStepOnePheromoneEvaporationMapImpl extends Worl
         return executed;
     }
 
+    /**
+     *
+     * @param agent
+     */
     @Override
     public void init(Agent agent) {
         Termite sim_agent = (Termite) agent;
         sim_agent.run();
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Vector<Action> actions() {
         Vector<Action> acts = new Vector<>();
@@ -336,6 +389,11 @@ public class WorldTemperaturesOneStepOnePheromoneEvaporationMapImpl extends Worl
         System.out.println(l05 + "," + e05 + "," + g05);
     }
 
+    /**
+     *
+     * @param t
+     * @return
+     */
     public int[] calculateNearestBlancPoint(Termite t) {
         int[] pos = new int[2];
         int move = -1;
