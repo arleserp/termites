@@ -7,7 +7,7 @@ package unalcol.termites.VM;
 
 /**
  *
- * @author Arles
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public class TermitesVMImpl extends TermitesVM {
 

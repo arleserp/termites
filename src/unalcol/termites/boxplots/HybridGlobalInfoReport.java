@@ -39,7 +39,7 @@ import unalcol.termites.reports.DataCollectedLatexConsolidatorSASOMessagesSend1;
 
 /**
  *
- * @author ARODRIGUEZ
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public class HybridGlobalInfoReport extends ApplicationFrame {
 

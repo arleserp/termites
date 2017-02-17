@@ -43,10 +43,9 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 import unalcol.termites.reports.DataCollectedLatexConsolidatorSASOMessagesSend1;
-
 /**
  *
- * @author ARODRIGUEZ
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public class SucessfulRates extends ApplicationFrame {
 

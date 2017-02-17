@@ -32,7 +32,7 @@ import unalcol.termites.stats.StatsTemperaturesImpl;
 
 /**
  *
- * @author Arles
+ * @author Arles Rodriguez <arles.rodriguez@gmail.com>
  */
 public class GraphicReportHealingObserver extends java.awt.Frame implements Observer {
 
